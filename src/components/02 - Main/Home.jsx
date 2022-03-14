@@ -1,5 +1,7 @@
+import { Button } from '@mui/material';
 import { list } from 'postcss';
 import React, {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom';
 import { api } from '../api';
 
 const Home = () => {
@@ -17,16 +19,16 @@ const Home = () => {
     
 
     return (
-    <div>
-        
+    <div className='mt-40'>
+       
         <ul>
             {
                 pokemon.map((value,index) => {
                     return <li key={index}>
-                            <div className='flex flex-col border w-60 h-60'>
-                            <h1 className='text-2xl'>{value.name}</h1>
-                            <img className='border w-40' src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${index +1}.svg`} alt="" />
-                            </div>
+                            <Link to='/pokemon:slug' className='m-auto mt-9 flex flex-col justify-around items-center border w-60 h-60'>
+                            <h1 className='text-2xl'>{`${value.name.substring(0,1).toUpperCase()}${value.name.substring(1)}`}</h1>
+                            <img className=' w-32 ' src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${index +1}.svg`} alt="" />
+                            </Link>
                             
                     </li>
                 })
