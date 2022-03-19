@@ -10,8 +10,8 @@ import { Link, useNavigate } from 'react-router-dom';
     
     const Home = () => {
       return (
-        <main>
-            <div className=' m-10 mt-32 bg-white/20 rounded-lg flex flex-col items-center justify-around h-80'>
+        <main className='border border-transparent'>
+            <div className='bg-white/20 rounded-lg flex flex-col items-center justify-around h-80 '>
                 <article>
                     <p className='flex items-center text-center h-56 p-4 text-lg font-medium '>
                         Hello, Welcome to pokeinit.
