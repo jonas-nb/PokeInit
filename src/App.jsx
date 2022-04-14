@@ -1,22 +1,12 @@
-import { useState } from 'react'
-import Header from './components/01 - Header/Header'
-import Main from './components/02 - Main/Main'
+import { useState } from "react";
+import Main from "./components/Main/Main";
 
 function App() {
-
-  
-
   return (
-    
-    <div className=''>
-          
-          <Header/>
-          <Main/>
-          
-      </div>
-    
-    
-  )
+    <div className="">
+      <Main />
+    </div>
+  );
 }
 
-export default App
+export default App;
