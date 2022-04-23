@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../LOGO/logo.png";
 import "./bg-image.css";
 import image from "../LOGO/bg-small.jpg";
+import Copyright from "../Pokedex/Copyright";
 const Home = () => {
   return (
     <main className=" img-bg h-screen flex flex-col items-center justify-between">
@@ -37,7 +38,9 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <p>Made with ❤ by Jonas Batista</p>
+      <p className="flex justify-between w-5/12">
+        Made with ❤ by Jonas Batista {<Copyright />}
+      </p>
     </main>
   );
 };
