@@ -15,7 +15,7 @@ const Copyright = () => {
 
   return (
     <div className=" text-black font-bold">
-      <h1>Pokeinit &copy; 2021-{age}</h1>
+      <div>Pokeinit &copy; 2021-{age}</div>
     </div>
   );
 };

@@ -62,7 +62,9 @@ const GridPokemon = () => {
           ))}
         </div>
       )}
-      <Copyright />
+      <div className="text-center mt-5">
+        <Copyright />
+      </div>
     </div>
   );
 };

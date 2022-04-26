@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Console from "./Console";
+
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Main/Home";
 import GridPokemon from "./components/Pokedex/GridPokemon";

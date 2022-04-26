@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../LOGO/logo.png";
 import "./bg-image.css";
 import image from "../LOGO/bg-small.jpg";
@@ -38,9 +38,9 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <p className="flex justify-between w-5/12">
+      <div className="flex justify-around text-sm w-full ">
         Made with ❤ by Jonas Batista {<Copyright />}
-      </p>
+      </div>
     </main>
   );
 };
