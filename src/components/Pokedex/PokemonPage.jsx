@@ -9,6 +9,7 @@ const PokemonPage = () => {
   const [end, setEnd] = useState("");
   const [imgPokemon, setImgPokemon] = useState("");
   const [typePokemon, setTypePokemon] = useState([]);
+  const [bgColorState, setBgColorState] = useState([]);
   //effects
   useEffect(() => {
     transformString();
@@ -49,20 +50,36 @@ const PokemonPage = () => {
     //set types of pokemon
     const typePokemonFunction = async () => {
       let json = await response.data.types.map(({ type }) => type);
-      console.log(json);
       setTypePokemon((json = await json.map(({ name }) => name)));
     };
     typePokemonFunction();
 
-    console.log(typeof typePokemon);
+    // call of api for color of background container pokemon
+    const setBgColor = async () => {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon-species/${params.name}/`
+      );
+
+      setBgColorState(await response.data.color.name);
+    };
+    setBgColor();
     //end of api
     setIsDefault(false);
+  };
+  //object of setColor css for container bg pokemon
+  let color = {
+    backgroundColor: bgColorState,
+    backgroundImage: `radial-gradient(${bgColorState}, #ffffff5e)`,
+    transition: "1s all linear",
   };
 
   return (
     <div>
       {/* image of pokemon */}
-      <div className="bg-yellow-400 rounded-b-2xl flex items-center justify-center">
+      <div
+        style={color}
+        className="bg-yellow-400 rounded-b-2xl flex items-center justify-center"
+      >
         <img
           src={isDefault === true ? <div>Carregando...</div> : imgPokemon}
           alt=""
