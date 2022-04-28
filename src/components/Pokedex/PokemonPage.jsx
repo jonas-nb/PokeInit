@@ -10,6 +10,7 @@ const PokemonPage = () => {
   const [imgPokemon, setImgPokemon] = useState("");
   const [typePokemon, setTypePokemon] = useState([]);
   const [bgColorState, setBgColorState] = useState([]);
+  const [isLegendary, setIsLegendary] = useState();
   //effects
   useEffect(() => {
     transformString();
@@ -59,6 +60,7 @@ const PokemonPage = () => {
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon-species/${params.name}/`
       );
+      setIsLegendary(await response.data.is_legendary);
 
       setBgColorState(await response.data.color.name);
     };
@@ -68,18 +70,24 @@ const PokemonPage = () => {
   };
   //object of setColor css for container bg pokemon
   let color = {
-    backgroundColor: bgColorState,
-    backgroundImage: `radial-gradient(${bgColorState}, #ffffff5e)`,
+    isbackgroundColor: bgColorState,
+    backgroundImage: `radial-gradient(${bgColorState}, #242424)`,
     transition: "1s all linear",
   };
-
+  let LegendaryColor = {
+    backgroundColor: "black",
+  };
+  console.log(isLegendary);
   return (
     <div>
       {/* image of pokemon */}
       <div
-        style={color}
+        style={isLegendary === false ? color : LegendaryColor}
         className="bg-yellow-400 rounded-b-2xl flex items-center justify-center"
       >
+        <h1 className="text-white">
+          {isLegendary === true ? "LEGENDARY" : " "}
+        </h1>
         <img
           src={isDefault === true ? <div>Carregando...</div> : imgPokemon}
           alt=""

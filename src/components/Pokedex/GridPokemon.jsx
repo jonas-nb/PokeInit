@@ -18,7 +18,7 @@ const GridPokemon = () => {
   const loadApi = async () => {
     setStateLoading(true);
     const response = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0/"
+      "https://pokeapi.co/api/v2/pokemon?limit=386&offset=0/"
     );
     setName(response.data.results.map((value) => value));
     setStateLoading(false);
@@ -32,6 +32,7 @@ const GridPokemon = () => {
     }
     return str;
   };
+  //function show legendary pokemons
 
   return (
     <div>
@@ -42,14 +43,17 @@ const GridPokemon = () => {
         <div className="flex flex-wrap items-center justify-center pt-32 gap-2">
           {name.map(({ name }, index) => (
             <Link className="" key={index} to={`/pokemon/${index + 1}/${name}`}>
-              <div className="border bg-slate-400/30 hover:bg-blue-400/90 w-24 h-24 flex flex-col items-center font-semibold rounded">
+              <div
+                className="border bg-slate-400/30 hover:bg-blue-400/90 p-3 w-28 h-22 sm:w-32 sm:h-32
+              8 flex flex-col items-center font-semibold rounded"
+              >
                 {/* name of Pokemon */}
-                <h1 className="text-center font-semibold">
+                <h1 className="font-semibold text-sm">
                   {`${name.substring(0, 1).toUpperCase()}${name.substring(1)}`}
                 </h1>
                 {/* image of pokemon */}
                 <img
-                  className="w-10 m-auto"
+                  className="w-11 sm:w-14 m-auto"
                   src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${pad(
                     index + 1,
                     3
