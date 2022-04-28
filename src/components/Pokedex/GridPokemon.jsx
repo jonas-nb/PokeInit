@@ -18,7 +18,7 @@ const GridPokemon = () => {
   const loadApi = async () => {
     setStateLoading(true);
     const response = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=386&offset=0/"
+      "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0/"
     );
     setName(response.data.results.map((value) => value));
     setStateLoading(false);
