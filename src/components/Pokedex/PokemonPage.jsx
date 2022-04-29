@@ -11,6 +11,8 @@ const PokemonPage = () => {
   const [typePokemon, setTypePokemon] = useState([]);
   const [bgColorState, setBgColorState] = useState([]);
   const [isLegendary, setIsLegendary] = useState(false);
+  const [aboutPokemon, setAboutPokemon] = useState("");
+  const [statsPokemon, setStatsPokemon] = useState("");
   //effects
   useEffect(() => {
     bgColorFunction();
@@ -45,7 +47,7 @@ const PokemonPage = () => {
     const response = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${params.name}/`
     );
-    console.log(response.data);
+    setStatsPokemon(await response.data.stats);
     // set image of pokemon
     setImgPokemon(await response.data.sprites.other.dream_world.front_default);
 
@@ -60,13 +62,14 @@ const PokemonPage = () => {
     setIsDefault(false);
   };
 
-  //setColor of pokemon (normal and legendary)
+  //setColor of pokemon (normal and legendary) and function 'main' of getApi 'pokemon-species'
   const bgColorFunction = async () => {
     const response = await axios.get(
       `https://pokeapi.co/api/v2/pokemon-species/${params.name}/`
     );
     setBgColorState(await response.data.color.name);
     setIsLegendary(await response.data.is_legendary);
+    setAboutPokemon(await response.data.flavor_text_entries[1].flavor_text);
   };
 
   //object of setColor css for container bg pokemon
@@ -81,10 +84,13 @@ const PokemonPage = () => {
   let LegendaryColor = {
     backgroundColor: "black",
   };
-  let textColor = {
+  let textColorWhite = {
     color: "white",
   };
-  console.log(bgColorState);
+  let textColorBlack = {
+    color: "black",
+  };
+  console.log(statsPokemon.map((value) => value));
   return (
     <div style={colorBG} className="h-screen">
       {/* Container image of pokemon */}
@@ -103,10 +109,16 @@ const PokemonPage = () => {
       </div>
       {/* info of pokemon title */}
       <section
-        style={bgColorState === "blue" ? textColor : ""}
-        className="mt-5"
+        style={
+          bgColorState === "blue" || bgColorState === "purple"
+            ? textColorWhite
+            : textColorBlack
+        }
+        className="mt-5 border flex flex-col items-center"
       >
-        <h1 className="border border-red-500 text-2xl">{name}</h1>
+        <h1 className="border border-red-500 text-2xl flex items-center">
+          {name}
+        </h1>
         <div>
           {/* number of pokemon */}
           <div>#{end}</div>
@@ -121,6 +133,9 @@ const PokemonPage = () => {
                 </ul>
               ))}
             </div>
+            <h1>Pokemon information</h1>
+            <p>{aboutPokemon}</p>
+            <h1>Stats Pokemon</h1>
           </div>
         </div>
       </section>
