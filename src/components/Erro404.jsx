@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Erro404 = () => {
   return (
-    <div>
-        <img  className='w-full h-full m-auto mt-24' src="https://freefrontend.com/assets/img/html-css-404-page-templates/HTML-404-Page-with-SVG.png" alt="" />
-        <h1 className='text-center text-2xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl  '>Page Not Found!</h1>
+    <div className="flex flex-col items-center justify-center pt-40 text-4xl">
+      <h1 className="">Page Not Found!</h1>
+      <br />
+      <h1>404</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Erro404
+export default Erro404;
