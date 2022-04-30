@@ -11,7 +11,7 @@ const Home = () => {
         <img
           className="w-8/12 sm:w-2/12 mt-10 sm:mt-3 flex m-auto sm:ml-5 sm:self-start "
           src={logo}
-          alt=""
+          alt="pokemon official logo"
         />
       </div>
 
@@ -19,7 +19,11 @@ const Home = () => {
         {/* container of img and apresentation text */}
         <div className="flex items-center justify-around sm:w-4/12 font-bold sm:order-2 ">
           <h1 className="text-4xl sm:text-2xl  ">Pokeinit</h1>
-          <img className="w-6/12 sm:w-6/12" src={image} alt="" />
+          <img
+            className="w-6/12 sm:w-6/12"
+            src={image}
+            alt="picture of pikachu"
+          />
         </div>
         {/* container text and buton */}
         <div className="flex flex-col items-center sm:order-1 sm:w-6/12">

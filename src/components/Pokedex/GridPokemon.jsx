@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Copyright from "./Copyright";
 import HeaderPokedex from "./HeaderPokedex";
-import PokemonPage from "./PokemonPage";
+
 const GridPokemon = () => {
   // states
   const [name, setName] = useState([]);
@@ -58,7 +58,7 @@ const GridPokemon = () => {
                     index + 1,
                     3
                   )}.png`}
-                  alt=""
+                  alt="grid pokemon"
                 />
                 <h2 className="font-mono">#{index + 1}</h2>
               </div>

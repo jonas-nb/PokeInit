@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { AiFillLinkedin } from "react-icons/ai";
-import { FiGithub } from "react-icons/fi";
 
 const Copyright = () => {
   const [age, setAge] = useState("");
