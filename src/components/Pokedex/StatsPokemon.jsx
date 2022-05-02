@@ -11,9 +11,7 @@ const StatsPokemon = () => {
   //catch information of url
   const params = useParams();
   const navigate = useNavigate();
-  const next = () => {
-    navigate(-1);
-  };
+
   //catch information
   const PokemonAPI = async () => {
     const response = await axios.get(
