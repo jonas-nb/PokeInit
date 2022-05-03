@@ -29,7 +29,7 @@ start the server
 ```
 
 
-## Stack utilizada
+## Stacks
 
 **Front-end:** React, TailwindCSS, Vite, React Router
 
