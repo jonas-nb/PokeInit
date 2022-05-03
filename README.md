@@ -7,13 +7,13 @@ Contains a pokedex with 151 first generation pokemons.
 clone the project
 
 ```bash
-  git clone https://link-to-the-project
+  git clone https://github.com/jonas-nb/PokeInit
 ```
 
 Enter the project directory
 
 ```bash
-  my-project cd
+  cd pokeinit
 ```
 
 install the dependencies
